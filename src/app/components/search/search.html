@@ -1,0 +1,9 @@
+<section>
+        <p>To begin, simply search below:</p>
+    <div class="search-wrapper">
+        <input type="text" class="search-input" placeholder="Search for code snippets..." [(ngModel)]="searchQuery"
+            (keyup.enter)="onSearch()" />
+        <span class="search-icon">🔍</span>
+    </div>
+</section>
+<!-- TODO: When database gets established, add in suggested search filter tags -->
