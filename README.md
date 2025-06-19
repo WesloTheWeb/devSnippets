@@ -1,6 +1,34 @@
-# DevsnippetsFrontend
+# Dev Snippets: Frontend
+Repository for the front-end portion of Dev Snippets. This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.3.
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.3.
+## Features
+This is an Angular frontend for a semantic code search application where users can:
+1. Upload code files/snippets
+2. Search using natural language
+3. View semantically similar results
+4. Manage their code snippets (CRUD operations)
+
+### Tech Stack (Frontend)
+- **Angular 18** (latest)
+- **TypeScript** (Angular 2+ is already written in TypeScript but for anyone non-technical, this is TypeScript)
+- **RxJS** (async operations)
+- **Component-scoped CSS**
+
+### Tech Stack (Backend) [Not implemented yet will be different repo]
+- **PostgreSQL** 
+- **Python**
+- **FastAPI** (Python)
+- **Vector DB** (Weaviate/Pinecone)
+
+
+Backend-focus goals:
+- SQL schema design, query tuning, and migrations in Postgres
+- Explore knowledge graph + vector databases like Weaviate/Pinecone
+(This project will be the semantic search of this graph database)
+
+Dev-ops Focus goals:
+- Docker, Kubernetes, or ECS
+- IaC (Infrastructure As Code) (Terraform, Pulumi, Cloud Build, GitHub Actions)
 
 ## Development server
 

@@ -1,0 +1,20 @@
+@use '../../../variables.scss' as v;
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    color: v.$text-gray;
+    background-color: #000;
+    border-top: 1px solid v.$border-color;
+    padding: 1rem;
+    text-align: center;
+}
+
+.githubLink {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.05);
+}
