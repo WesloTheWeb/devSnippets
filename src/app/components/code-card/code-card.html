@@ -1,0 +1,25 @@
+<div class="code-card">
+  <!-- Header Section -->
+  <section class="card-header">
+    <div class="header-content">
+      <h4 class="card-title">{{ snippet?.title || 'Untitled Snippet' }}</h4>
+      <p class="card-description" *ngIf="snippet?.description">{{ snippet!.description }}</p>
+    </div>
+    <div class="header-meta">
+      <span class="language-badge">{{ snippet?.language || 'Unknown' }}</span>
+      <span class="similarity-score" *ngIf="snippet && snippet.similarity !== undefined">
+        {{ snippet!.similarity }}% match
+      </span>
+    </div>
+  </section>
+
+  <!-- Code Section -->
+  <section class="code-section">
+    <pre class="code-block"><code>{{ snippet?.code || '// No code available' }}</code></pre>
+  </section>
+
+<!-- Tags Section -->
+  <section class="tags-section" *ngIf="snippet && snippet.tags && snippet.tags.length > 0">
+    <span class="tag" *ngFor="let tag of snippet.tags">{{ tag }}</span>
+  </section>
+</div>

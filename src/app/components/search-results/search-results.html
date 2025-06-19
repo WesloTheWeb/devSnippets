@@ -1,0 +1,37 @@
+<section class="search-results-container">
+  <!-- Results Header -->
+  <div class="results-header">
+    <h2 class="results-count">
+      Found <span class="count">{{ results.length }}</span> results
+    </h2>
+    <div class="results-actions">
+      <select class="sort-dropdown" [(ngModel)]="sortBy" (change)="onSortChange()">
+        <option value="relevance">Most Relevant</option>
+        <option value="recent">Most Recent</option>
+        <option value="popular">Most Popular</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Results List -->
+  <div class="results-list" *ngIf="results.length > 0">
+    <app-code-card 
+      *ngFor="let result of results" 
+      [snippet]="result"
+      class="result-item"
+    ></app-code-card>
+  </div>
+
+  <!-- Empty State -->
+  <div class="empty-state" *ngIf="results.length === 0 && !isLoading">
+    <span class="empty-icon">🔍</span>
+    <h3>No results found</h3>
+    <p>Try adjusting your search terms or filters</p>
+  </div>
+
+  <!-- Loading State -->
+  <div class="loading-state" *ngIf="isLoading">
+    <div class="spinner"></div>
+    <p>Searching for code snippets...</p>
+  </div>
+</section>
