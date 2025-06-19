@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CodeSnippet } from '../search-results/search-results';
+import { CodeSnippet } from '../../../interfaces';
 
 @Component({
   selector: 'app-code-card',
