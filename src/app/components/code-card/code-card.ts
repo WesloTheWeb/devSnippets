@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CodeSnippet } from '../../../interfaces';
+import { Snippet } from '../../../interfaces';
 
 @Component({
   selector: 'app-code-card',
@@ -10,5 +10,5 @@ import { CodeSnippet } from '../../../interfaces';
   styleUrl: './code-card.scss'
 })
 export class CodeCard {
-  @Input() snippet: CodeSnippet | null = null;
+  @Input() snippet: Snippet | null = null;
 }
