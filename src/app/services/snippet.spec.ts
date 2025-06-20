@@ -1,13 +1,12 @@
 import { TestBed } from '@angular/core/testing';
-
-import { Snippet } from './snippet';
+import { SnippetService } from './snippet';
 
 describe('Snippet', () => {
-  let service: Snippet;
+  let service: SnippetService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(Snippet);
+    service = TestBed.inject(SnippetService);
   });
 
   it('should be created', () => {
