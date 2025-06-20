@@ -11,4 +11,14 @@ import { Snippet } from '../../../interfaces';
 })
 export class CodeCard {
   @Input() snippet: Snippet | null = null;
-}
+  copied = false;
+
+  copyCode() {
+    if (this.snippet?.code) {
+      navigator.clipboard.writeText(this.snippet.code).then(() => {
+        this.copied = true;
+        setTimeout(() => this.copied = false, 2000);
+      });
+    }
+  }
+};

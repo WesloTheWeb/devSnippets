@@ -18,8 +18,13 @@
     <pre class="code-block"><code>{{ snippet?.code || '// No code available' }}</code></pre>
   </section>
 
-<!-- Tags Section -->
-  <section class="tags-section" *ngIf="snippet && snippet.tags && snippet.tags.length > 0">
-    <span class="tag" *ngFor="let tag of snippet.tags">{{ tag }}</span>
+  <!-- Bottom Section with Tags and Copy Button -->
+  <section class="card-footer">
+    <div class="tags-section" *ngIf="snippet && snippet.tags && snippet.tags.length > 0">
+      <span class="tag" *ngFor="let tag of snippet.tags">{{ tag }}</span>
+    </div>
+    <button class="copy-btn-card" (click)="copyCode()" [class.copied]="copied">
+      {{ copied ? 'Copied!' : 'Copy Snippet' }}
+    </button>
   </section>
 </div>
