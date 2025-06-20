@@ -1,6 +1,10 @@
 # Dev Snippets: Frontend
 Repository for the front-end portion of Dev Snippets. This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.3.
 
+For the accompanying backend, [devSnippets Backend Repository](https://github.com/WesloTheWeb/devSnippets-backend)
+
+NOTE: To run you must currently have the backend running and frontend. I have not hosted this live yet.
+
 ## Features
 This is an Angular frontend for a semantic code search application where users can:
 1. Upload code files/snippets
@@ -14,12 +18,12 @@ This is an Angular frontend for a semantic code search application where users c
 - **RxJS** (async operations)
 - **Component-scoped CSS**
 
-### Tech Stack (Backend) [Not implemented yet will be different repo]
+### Tech Stack (Backend)
+[devSnippets Backend](https://github.com/WesloTheWeb/devSnippets-backend)
 - **PostgreSQL** 
 - **Python**
 - **FastAPI** (Python)
 - **Vector DB** (Weaviate/Pinecone)
-
 
 Backend-focus goals:
 - SQL schema design, query tuning, and migrations in Postgres
