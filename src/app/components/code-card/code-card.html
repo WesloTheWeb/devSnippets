@@ -8,10 +8,10 @@
     <div class="header-meta">
       <span class="language-badge">{{ snippet?.language || 'Unknown' }}</span>
       <span class="similarity-score" *ngIf="snippet && snippet.similarity !== undefined" [ngClass]="{
-              'similarity-high': snippet!.similarity >= 0.45,
-              'similarity-medium': snippet!.similarity >= 0.35 && snippet!.similarity < 0.45,
-              'similarity-low': snippet!.similarity < 0.35
-            }">
+        'similarity-high': snippet!.similarity >= HIGH_SIMILARITY,
+        'similarity-medium': snippet!.similarity >= MEDIUM_SIMILARITY && snippet!.similarity < HIGH_SIMILARITY,
+        'similarity-low': snippet!.similarity < MEDIUM_SIMILARITY
+      }">
         {{ (snippet!.similarity * 100).toFixed(1) }}% match
       </span>
     </div>
