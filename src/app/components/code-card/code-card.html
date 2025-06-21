@@ -7,17 +7,19 @@
     </div>
     <div class="header-meta">
       <span class="language-badge">{{ snippet?.language || 'Unknown' }}</span>
-      <span class="similarity-score" *ngIf="snippet && snippet.similarity !== undefined">
+      <span class="similarity-score" *ngIf="snippet && snippet.similarity !== undefined" [ngClass]="{
+              'similarity-high': snippet!.similarity >= 0.45,
+              'similarity-medium': snippet!.similarity >= 0.35 && snippet!.similarity < 0.45,
+              'similarity-low': snippet!.similarity < 0.35
+            }">
         {{ (snippet!.similarity * 100).toFixed(1) }}% match
       </span>
     </div>
   </section>
-
   <!-- Code Section -->
   <section class="code-section">
     <pre class="code-block"><code>{{ snippet?.code || '// No code available' }}</code></pre>
   </section>
-
   <!-- Bottom Section with Tags and Copy Button -->
   <section class="card-footer">
     <div class="tags-section" *ngIf="snippet && snippet.tags && snippet.tags.length > 0">

@@ -55,12 +55,28 @@
 }
 
 .similarity-score {
-  background: rgba(v.$primary-color, 0.1);
-  color: darken(v.$primary-color, 10%);
   padding: 0.25rem 0.75rem;
   border-radius: 4px;
   font-size: 0.75rem;
   font-weight: 600;
+
+  &.similarity-high {
+    @extend .similarity-score;
+    background-color: rgba(v.$primary-color, 0.1);
+    color: darken(v.$primary-color, 10%);
+  }
+
+  &.similarity-medium {
+    @extend .similarity-score;
+    background-color: rgb(66, 131, 188);
+    color: rgb(220 239 255);
+  }
+
+  &.similarity-low {
+    @extend .similarity-score;
+    background-color: rgb(194, 72, 72);
+    color: rgb(255 255 255 / 82%);
+  }
 }
 
 // Code Section
