@@ -8,7 +8,7 @@
     <div class="header-meta">
       <span class="language-badge">{{ snippet?.language || 'Unknown' }}</span>
       <span class="similarity-score" *ngIf="snippet && snippet.similarity !== undefined">
-        {{ snippet!.similarity }}% match
+        {{ (snippet!.similarity * 100).toFixed(1) }}% match
       </span>
     </div>
   </section>
