@@ -7,19 +7,26 @@
     </div>
     <div class="header-meta">
       <span class="language-badge">{{ snippet?.language || 'Unknown' }}</span>
-      <span class="similarity-score" *ngIf="snippet && snippet.similarity !== undefined">
-        {{ snippet!.similarity }}% match
+      <span class="similarity-score" *ngIf="snippet && snippet.similarity !== undefined" [ngClass]="{
+        'similarity-high': snippet!.similarity >= HIGH_SIMILARITY,
+        'similarity-medium': snippet!.similarity >= MEDIUM_SIMILARITY && snippet!.similarity < HIGH_SIMILARITY,
+        'similarity-low': snippet!.similarity < MEDIUM_SIMILARITY
+      }">
+        {{ (snippet!.similarity * 100).toFixed(1) }}% match
       </span>
     </div>
   </section>
-
   <!-- Code Section -->
   <section class="code-section">
     <pre class="code-block"><code>{{ snippet?.code || '// No code available' }}</code></pre>
   </section>
-
-<!-- Tags Section -->
-  <section class="tags-section" *ngIf="snippet && snippet.tags && snippet.tags.length > 0">
-    <span class="tag" *ngFor="let tag of snippet.tags">{{ tag }}</span>
+  <!-- Bottom Section with Tags and Copy Button -->
+  <section class="card-footer">
+    <div class="tags-section" *ngIf="snippet && snippet.tags && snippet.tags.length > 0">
+      <span class="tag" *ngFor="let tag of snippet.tags">{{ tag }}</span>
+    </div>
+    <button class="copy-btn-card" (click)="copyCode()" [class.copied]="copied">
+      {{ copied ? 'Copied!' : 'Copy Snippet' }}
+    </button>
   </section>
 </div>
