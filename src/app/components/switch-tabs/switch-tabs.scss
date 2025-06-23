@@ -1,13 +1,55 @@
-@use '../../../styles.scss' as v;
+@use '../../../variables.scss' as v;
 
 .tab-container {
     text-align: center;
-    margin: 1rem auto;
+    margin: 2rem auto;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
 
     button {
-        margin: 0 .5rem;
-        padding: .75rem;
-        border-radius: 5px;
-        border: 1px solid #000;
+        padding: 0.875rem 1.5rem;
+        border-radius: 8px;
+        border: 2px solid v.$border-color;
+        background-color: v.$white;
+        color: v.$text-dark;
+        font-weight: 500;
+        font-size: 0.95rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        min-width: 140px;
+
+        // Default hover state
+        &:hover {
+            border-color: v.$primary-color;
+            background-color: v.$background-light;
+            color: v.$text-dark;
+            box-shadow: 0 2px 8px v.$hover-shadow;
+        }
+
+        // Active/Selected state - you can add this class dynamically
+        &.active {
+            background-color: v.$primary-color;
+            border-color: v.$primary-color;
+            color: v.$white;
+            box-shadow: 0 2px 12px rgba(104, 211, 145, 0.3);
+
+            &:hover {
+                background-color: v.$primary-hover;
+                border-color: v.$primary-hover;
+                color: v.$white;
+            }
+        }
+
+        // Focus state for accessibility
+        &:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(104, 211, 145, 0.2);
+        }
+
+        // Active press state
+        &:active {
+            transform: translateY(1px);
+        }
     }
 }
