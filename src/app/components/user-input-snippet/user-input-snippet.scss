@@ -73,7 +73,7 @@
         // Error state
         &.error {
             border-color: #e53e3e;
-            
+
             &:focus {
                 border-color: #e53e3e;
                 box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.1);
@@ -97,12 +97,15 @@
 
     .form-select {
         cursor: pointer;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
         background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
         background-position: right 0.5rem center;
         background-repeat: no-repeat;
         background-size: 1.5em 1.5em;
         padding-right: 2.5rem;
-        
+
         &:focus {
             background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%2368d391' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
         }
@@ -112,6 +115,35 @@
         margin-top: 1rem;
         display: flex;
         justify-content: flex-end;
+        gap: 1rem;
+
+        .clear-btn {
+            background-color: transparent;
+            color: v.$text-gray;
+            border: 2px solid v.$border-color;
+            padding: 0.875rem 2rem;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            min-width: 140px;
+
+            &:hover {
+                background-color: v.$background-light;
+                border-color: v.$text-gray;
+                color: v.$text-dark;
+            }
+
+            &:focus {
+                outline: none;
+                box-shadow: 0 0 0 3px rgba(113, 128, 150, 0.2);
+            }
+
+            &:active {
+                transform: translateY(1px);
+            }
+        }
 
         .submit-btn {
             background-color: v.$primary-color;
@@ -152,7 +184,7 @@
 @media (max-width: 768px) {
     .add-snippet-container {
         padding: 1rem;
-        
+
         h2 {
             font-size: 1.5rem;
         }
@@ -160,8 +192,11 @@
 
     .snippet-form {
         gap: 1.25rem;
-        
+
         .form-actions {
+            flex-direction: column-reverse; // Stack buttons on mobile
+            gap: 0.75rem;
+
             .submit-btn {
                 width: 100%;
             }

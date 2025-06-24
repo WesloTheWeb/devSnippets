@@ -30,6 +30,19 @@ export class UserInputSnippet {
 
   constructor(private snippetService: SnippetService) { }
 
+  clearForm() {
+    this.snippet = {
+      title: '',
+      description: '',
+      code: '',
+      language: '',
+      tags: []
+    };
+    this.tagsInput = '';
+    this.snippetForm.resetForm();
+    this.showSuccessBanner = false;
+  };
+
   onSubmit() {
     if (this.isSubmitting) return;
 
