@@ -54,6 +54,21 @@
         <!-- Code Field -->
         <div class="form-group">
             <label for="code">Code *</label>
+            <div class="file-upload-section">
+                <button type="button" (click)="fileInput.click()" class="file-upload-btn">
+                    📁 Upload Code File
+                </button>
+                <input type="file" #fileInput (change)="onFileSelect($event)"
+                    accept=".js,.ts,.py,.java,.cs,.cpp,.c,.h,.html,.css,.sql,.php,.rb,.go,.rs,.json,.xml,.yml,.yaml"
+                    style="display: none;">
+                <!-- File attachment display with X button -->
+                <div class="file-attachment" *ngIf="selectedFileName">
+                    <span class="file-name">{{ selectedFileName }}</span>
+                    <button type="button" (click)="clearFile()" class="clear-file-btn" title="Remove file">
+                        ✕
+                    </button>
+                </div>
+            </div>
             <textarea id="code" name="code" [(ngModel)]="snippet.code" #codeInput="ngModel" required
                 placeholder="Paste your code here..." class="form-textarea code-textarea" rows="12"
                 [class.error]="codeInput.invalid && codeInput.touched">

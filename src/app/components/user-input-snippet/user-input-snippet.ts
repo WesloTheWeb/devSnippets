@@ -27,8 +27,57 @@ export class UserInputSnippet {
   isSubmitting: boolean = false;
   showSuccessBanner: boolean = false;
   successMessage: string = '';
+  selectedFileName: string = '';
+
 
   constructor(private snippetService: SnippetService) { }
+
+  // ADD THIS METHOD
+  onFileSelect(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      this.selectedFileName = file.name;
+
+      // Auto-detect language from file extension
+      const extension = file.name.split('.').pop()?.toLowerCase();
+      if (extension && !this.snippet.language) {
+        this.snippet.language = this.getLanguageFromExtension(extension);
+      }
+
+      // Read file content
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        this.snippet.code = e.target?.result as string;
+      };
+      reader.readAsText(file);
+    }
+  }
+
+  // ADD THIS METHOD
+  private getLanguageFromExtension(extension: string): string {
+    const extensionMap: { [key: string]: string } = {
+      'js': 'javascript',
+      'ts': 'typescript',
+      'py': 'python',
+      'java': 'java',
+      'cs': 'csharp',
+      'cpp': 'cpp',
+      'c': 'cpp',
+      'h': 'cpp',
+      'html': 'html',
+      'css': 'css',
+      'sql': 'sql',
+      'php': 'php',
+      'rb': 'ruby',
+      'go': 'go',
+      'rs': 'rust',
+      'json': 'javascript',
+      'xml': 'html',
+      'yml': 'other',
+      'yaml': 'other'
+    };
+    return extensionMap[extension] || 'other';
+  }
 
   clearForm() {
     this.snippet = {
@@ -39,9 +88,20 @@ export class UserInputSnippet {
       tags: []
     };
     this.tagsInput = '';
+    this.selectedFileName = '';
     this.snippetForm.resetForm();
     this.showSuccessBanner = false;
   };
+
+  clearFile() {
+    this.selectedFileName = '';
+    this.snippet.code = '';
+    // Clear the file input
+    const fileInput = document.querySelector('input[type="file"]') as HTMLInputElement;
+    if (fileInput) {
+      fileInput.value = '';
+    }
+  }
 
   onSubmit() {
     if (this.isSubmitting) return;

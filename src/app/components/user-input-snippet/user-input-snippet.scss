@@ -180,6 +180,45 @@
     }
 }
 
+.file-upload-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+
+    .file-upload-btn {
+        background-color: v.$background-light;
+        color: v.$text-dark;
+        border: 2px dashed v.$border-color;
+        padding: 0.5rem 1rem;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        &:hover {
+            border-color: v.$primary-color;
+            background-color: rgba(104, 211, 145, 0.05);
+            color: v.$primary-color;
+        }
+
+        &:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(104, 211, 145, 0.1);
+        }
+    }
+
+    .file-info {
+        color: v.$text-gray;
+        font-size: 0.85rem;
+        font-style: italic;
+    }
+}
+
 // Responsive design
 @media (max-width: 768px) {
     .add-snippet-container {
