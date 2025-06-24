@@ -1,5 +1,18 @@
 <app-header></app-header>
-<app-search></app-search>
-<app-search-results></app-search-results>
+
+<app-switch-tabs (tabChanged)="onTabChanged($event)"></app-switch-tabs>
+
+<!-- Conditional Content Based on Active Tab -->
+<!-- Search View - Only show when 'search' tab is active -->
+<div *ngIf="activeTab === 'search'">
+    <app-search></app-search>
+    <app-search-results></app-search-results>
+</div>
+
+<!-- Add Snippet View - Only show when 'add' tab is active -->
+<div *ngIf="activeTab === 'add'">
+    <app-user-input-snippet></app-user-input-snippet>
+</div>
+
 <app-footer></app-footer>
 <router-outlet></router-outlet>

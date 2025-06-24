@@ -1,0 +1,13 @@
+<div 
+  class="banner-container"
+  [class.banner-static]="variant === 'static'"
+  [class.banner-usercard]="variant === 'usercard'"
+  [class.banner-success]="type === 'success'"
+  [class.banner-error]="type === 'error'"
+  [class.banner-warning]="type === 'warning'"
+  [class.banner-info]="type === 'info'">
+  
+  <span *ngIf="variant === 'usercard' && type === 'success'" class="icon">🏆</span>
+  
+  {{ message }}
+</div>

@@ -1,0 +1,8 @@
+<section class="tab-container">
+    <button [class.active]="activeTab === 'search'" (click)="setActiveTab('search')">
+        Search Snippets
+    </button>
+    <button [class.active]="activeTab === 'add'" (click)="setActiveTab('add')">
+        Add Snippet
+    </button>    
+</section>
